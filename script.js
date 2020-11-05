@@ -25,7 +25,7 @@ window.onload = function () {
         for (let image of liste) {
 
             let col = document.createElement('div');
-            col.classList.add('col-12', 'col-md-6', 'col-lg-3', 'col-xl-2', 'm-2');
+            col.classList.add('col-sm-12', 'col-md-6', 'col-lg-3', 'col-xl-2', 'm-2');
 
             let card = document.createElement('div');
             card.classList.add('card');
