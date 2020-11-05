@@ -23,26 +23,17 @@ window.onload = function () {
         let row;
 
         for (let image of liste) {
-            if (i ==0 ){
-                row = document.createElement('div');
-                row.classList.add('row');
-            }
-
-            if (++i == 3){
-                i = 0;
-            }
 
             let col = document.createElement('div');
-            col.classList.add('col', 'm-2');
+            col.classList.add('col-12', 'col-md-6', 'col-lg-3', 'col-xl-2', 'm-2');
 
             let card = document.createElement('div');
             card.classList.add('card');
-            // card.style.height = '30rem'
 
             let img = document.createElement('img');
             img.src = image.src;
             img.classList.add('card-img-top');
-            img.style.height = '20rem';
+            img.setAttribute('alt', image.title);
 
             let card_body = document.createElement('div');
             card_body.classList.add('card-body');
