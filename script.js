@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    fetch(`https://github.com/agazirce/GalerieRepos/blob/main/galerie.json`).then(function (result) {
+    fetch(`GalerieRepos/galerie.json`).then(function (result) {
         console.warn(`Données récupérées !`);
         result.json()
             .then(function (images) {
