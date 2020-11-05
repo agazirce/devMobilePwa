@@ -13,14 +13,16 @@ window.onload = function () {
     if (images != []){
         let contenant = document.createElement('div');
         contenant.classList.add('container-fluid', 'bg-white');
+        let row = document.createElement('div');
+        row.classList.add('row');
+        contenant.appendChild(row);
         document.body.appendChild(contenant);
-        create_row(images, contenant);
+        create_row(images, row);
     }
 
 
-    function create_row(liste, contenant) {
+    function create_row(liste, row) {
         let i = 0;
-        let row;
 
         for (let image of liste) {
 
@@ -46,7 +48,7 @@ window.onload = function () {
             card.appendChild(img);
             card.appendChild(card_body);
             col.appendChild(card);
-            contenant.appendChild(col);
+            row.appendChild(col);
         }
     }
 }
