@@ -1,13 +1,31 @@
-{ "name": "Galerie PWA",
-"icons": [
-{
-"src": "images/icons/Pictures-Canon-icon-128.png",
-"sizes": "72x72",
-"type": "image/png"
-},
-{
-"src": "images/icons/Pictures-Canon-icon-512.png",
-"sizes": "96x96",
-"type": "image/png"
-}]
+{"name": "Galerie PWA",
+"short_name": "Galerie",
+"icons":
+    [
+        {
+        "src": "images/icons/Pictures-Canon-icon-72.png",
+        "sizes": "72x72",
+        "type": "image/png",
+        },
+        {
+        "src": "images/icons/Pictures-Canon-icon-96.png",
+        "sizes": "96x96",
+        "type": "image/png",
+        },
+        {
+        "src": "images/icons/Pictures-Canon-icon-128.png",
+        "sizes": "128x128",
+        "type": "image/png",
+        },
+        {
+        "src": "images/icons/Pictures-Canon-icon-256.png",
+        "sizes": "256x256",
+        "type": "image/png",
+        },
+        {
+        "src": "images/icons/Pictures-Canon-icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+        }
+    ]
 }
