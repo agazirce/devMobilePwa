@@ -46,8 +46,7 @@ window.onload = function () {
             card.appendChild(img);
             card.appendChild(card_body);
             col.appendChild(card);
-            row.appendChild(col);
-            contenant.appendChild(row);
+            contenant.appendChild(col);
         }
     }
 }
