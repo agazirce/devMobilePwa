@@ -1,7 +1,7 @@
 window.onload = function () {
 
     fetch(`GalerieRepos/galerie.json`).then(function (result) {
-        console.warn(`Données récupérées !`);
+        console.info(`Données récupérées !`);
         result.json()
             .then(function (images) {
                 console.warn(`Données Jsonizées !`);
