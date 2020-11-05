@@ -1,13 +1,13 @@
 window.onload = function () {
-    let images = [{"src" : "https://cdn.pixabay.com/photo/2020/02/15/22/55/couple-4852225__340.jpg",
+    let images = [{"src" : "images/photos/couple-4852225__340.jpg",
                     "title" : "couple âgé"},
-                    {"src" : "https://cdn.pixabay.com/photo/2015/11/16/16/28/bird-1045954__340.jpg",
+                    {"src" : "images/photos/bird-1045954__340.jpg",
                     "title" : "oiseau"},
-                    {"src" : "https://cdn.pixabay.com/photo/2020/05/16/10/04/crocodile-5176851__340.jpg",
+                    {"src" : "images/photos/crocodile-5176851__340.jpg",
                     "title" : "oeil de croco"},
-                    {"src" : "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+                    {"src" : "images/photos/tree-736885__340.jpg",
                     "title" : "coucher de soleil"},
-                    {"src" : "https://cdn.pixabay.com/photo/2016/01/08/11/57/butterfly-1127666__340.jpg",
+                    {"src" : "images/photos/butterfly-1127666__340.jpg",
                     "title" : "papillon"}];
 
     if (images != []){
