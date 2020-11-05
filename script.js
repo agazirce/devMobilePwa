@@ -1,24 +1,27 @@
 window.onload = function () {
-    let images = [{"src" : "images/photos/couple-4852225__340.jpg",
-                    "title" : "couple âgé"},
-                    {"src" : "images/photos/bird-1045954__340.jpg",
-                    "title" : "oiseau"},
-                    {"src" : "images/photos/crocodile-5176851__340.jpg",
-                    "title" : "oeil de croco"},
-                    {"src" : "images/photos/tree-736885__340.jpg",
-                    "title" : "coucher de soleil"},
-                    {"src" : "images/photos/butterfly-1127666__340.jpg",
-                    "title" : "papillon"}];
 
-    if (images != []){
-        let contenant = document.createElement('div');
-        contenant.classList.add('container-fluid', 'bg-white');
-        let row = document.createElement('div');
-        row.classList.add('row');
-        contenant.appendChild(row);
-        document.body.appendChild(contenant);
-        create_row(images, row);
-    }
+    fetch(`https://github.com/agazirce/GalerieRepos/blob/main/galerie.json`).then(function (result) {
+        console.warn(`Données récupérées !`);
+        result.json()
+            .then(function (images) {
+                console.warn(`Données Jsonizées !`);
+                console.log(images);
+                if (images != []){
+                    let contenant = document.createElement('div');
+                    contenant.classList.add('container-fluid', 'bg-white');
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    contenant.appendChild(row);
+                    document.body.appendChild(contenant);
+                    create_row(images, row);
+                }
+            });
+    }).catch(function (error) {
+        console.error(`Une erreur s'est produite.`);
+        console.log(error);
+    });
+
+
 
 
     function create_row(liste, row) {
