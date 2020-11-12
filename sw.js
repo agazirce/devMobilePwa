@@ -4,10 +4,6 @@ self.addEventListener('install', event=>{
             return cache.addAll([
                 '/index.html',
                 '/script.js',
-                '/image-list.js',
-                '/star-wars-logo.jpg',
-                '/images/',
-                '/images/icons/',
                 '/images/icons/icon-72x72.png',
                 '/images/icons/icon-96x96.png',
                 '/images/icons/icon-128x128.png',
