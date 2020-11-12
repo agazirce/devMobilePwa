@@ -1,6 +1,6 @@
 self.addEventListener('install', event=>{
     event.waitUntil(
-        caches.open('v1').then(function(cache) {
+        /*caches.open('v1').then(function(cache) {
             return cache.addAll([
                 '/index.html',
                 '/script.js',
@@ -10,7 +10,8 @@ self.addEventListener('install', event=>{
                 '/images/icons/icon-256x256.png',
                 '/images/icons/icon-512x512.png'
             ]);
-        })
+        })*/
+        Promise.resolve('Install phase succeed')
     );
 });
 
