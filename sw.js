@@ -21,10 +21,10 @@ self.addEventListener ('message', event=>{
 });
 
 self.addEventListener('fetch', event=>{
-    console.log(new Response('PWA!!!!'));
+    console.log(new Response('PWA!!!!'));/*
     event.respondWith(caches.match(event.request)
         .catch(function() {
             return fetch(event.request);
-        }));
+        }));*/
 });
 
