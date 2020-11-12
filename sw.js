@@ -22,6 +22,9 @@ self.addEventListener ('message', event=>{
 
 self.addEventListener('fetch', event=>{
     event.respondWith(new Response('PWA!!!!'));
-    event.respondWith(caches.match(event.request));
+    event.respondWith(caches.match(event.request)
+        .catch(function() {
+            return fetch(event.request);
+        }));
 });
 
