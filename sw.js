@@ -2,18 +2,17 @@ self.addEventListener('install', event=>{
     event.waitUntil(
         caches.open('v1').then(function(cache) {
             return cache.addAll([
-                '/sw-test/',
-                '/sw-test/index.html',
-                '/sw-test/script.js',
-                '/sw-test/image-list.js',
-                '/sw-test/star-wars-logo.jpg',
-                '/sw-test/images/',
-                '/sw-test/images/icons/',
-                '/sw-test/images/icons/icon-72x72.png',
-                '/sw-test/images/icons/icon-96x96.png',
-                '/sw-test/images/icons/icon-128x128.png',
-                '/sw-test/images/icons/icon-256x256.png',
-                '/sw-test/images/icons/icon-512x512.png'
+                '/index.html',
+                '/script.js',
+                '/image-list.js',
+                '/star-wars-logo.jpg',
+                '/images/',
+                '/images/icons/',
+                '/images/icons/icon-72x72.png',
+                '/images/icons/icon-96x96.png',
+                '/images/icons/icon-128x128.png',
+                '/images/icons/icon-256x256.png',
+                '/images/icons/icon-512x512.png'
             ]);
         })
     ) ;
