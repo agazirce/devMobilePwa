@@ -7,3 +7,7 @@ self.addEventListener ('message', event=>{
 self.addEventListener('fetch', event=>{
     event.respondWith(new Response('PWA!!!!')) ;
 }) ;
+
+self.addEventListener('install', event=>{
+    event.waitUntil(Promise.resolve('Install phase succeed')) ;
+}) ;
