@@ -11,18 +11,10 @@ window.onload = function () {
         window.addEventListener('online', event=>{
             document.getElementById('header').setAttribute('hidden', '');
         }) ;
-
-        fetch(`https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json`)
-            .then((response) => response.json())
-            .then((json) => afficher(json))
-            .catch((error) => {
-            console.error(`Une erreur s'est produite.`);
-            console.log(error);
-        });
     });
 
     function afficher(images){
-        if (images !== []){
+        if (images != []){
             let contenant = document.createElement('div');
             contenant.classList.add('container-fluid', 'bg-white');
             let row = document.createElement('div');
@@ -32,6 +24,21 @@ window.onload = function () {
             create_row(images, row);
         }
     }
+
+    fetch(`https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json`).then((result) => {
+        console.info(`Données récupérées !`);
+        result.json()
+            .then((images) => {
+                console.info(`Données Jsonizées !`);
+                afficher(images)
+            });
+    }).catch(function (error) {
+        console.error(`Une erreur s'est produite.`);
+        console.log(error);
+    });
+
+
+
 
     function create_row(liste, row) {
         let i = 0;
