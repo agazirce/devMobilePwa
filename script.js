@@ -1,4 +1,13 @@
 window.onload = function () {
+    if(!navigator.onLine){
+        let banniere = document.createElement('header');
+        banniere.id = 'banniere';
+        banniere.style.backgroundColor = 'red';
+        banniere.style.color = 'white';
+        banniere.style.textAlign = 'center';
+        banniere.innerText = 'Attention, vous êtes hors-ligne';
+        document.body.prepend(banniere);
+    }
 
     window.addEventListener('offline', event=>{
         let banniere = document.createElement('header');
