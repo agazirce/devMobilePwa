@@ -35,7 +35,14 @@ self.addEventListener('install', event=>{
                 '/images/icons/icon-96x96.png',
                 '/images/icons/icon-128x128.png',
                 '/images/icons/icon-256x256.png',
-                '/images/icons/icon-512x512.png'
+                '/images/icons/icon-512x512.png',
+                'GalerieRepos/galerie.json',
+                'https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js',
+                'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
+                'https://code.jquery.com/jquery-3.5.1.slim.min.js',
+                'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',
+                'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js',
+                'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js'
             ]);
         })
         /*Promise.resolve('Install phase succeed')*/
