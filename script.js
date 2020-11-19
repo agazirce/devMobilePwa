@@ -4,8 +4,7 @@ window.onload = function () {
         console.info(`Données récupérées !`);
         result.json()
             .then(function (images) {
-                console.warn(`Données Jsonizées !`);
-                console.log(images);
+                console.info(`Données Jsonizées !`);
                 if (images != []){
                     let contenant = document.createElement('div');
                     contenant.classList.add('container-fluid', 'bg-white');

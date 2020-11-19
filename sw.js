@@ -1,6 +1,6 @@
-self.addEventListener('install', event=>{
+/*self.addEventListener('install', event=>{
     event.waitUntil(
-        /*caches.open('v1').then(function(cache) {
+        /!*caches.open('v1').then(function(cache) {
             return cache.addAll([
                 '/index.html',
                 '/script.js',
@@ -10,7 +10,7 @@ self.addEventListener('install', event=>{
                 '/images/icons/icon-256x256.png',
                 '/images/icons/icon-512x512.png'
             ]);
-        })*/
+        })*!/
         Promise.resolve('Install phase succeed')
     );
 });
@@ -19,7 +19,7 @@ self.addEventListener ('message', event=>{
     this.clients.matchAll().then(clients=>{
         clients.forEach(client=>client.postMessage('Enchanté, je suis le service worker'));
     });
-});
+});*/
 
 self.addEventListener('fetch', event=>{
     console.log(event.request.url);/*
@@ -30,11 +30,11 @@ self.addEventListener('fetch', event=>{
         }));*/
 });
 
-self.addEventListener('fetch', event=>{
+/*self.addEventListener('fetch', event=>{
     event.respondWith(
         fetch(event.request).then(Response)
     );
-});
+});*/
 
 self.addEventListener("fetch", (event) => {
     const url = event.request.url;
