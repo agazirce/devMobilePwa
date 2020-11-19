@@ -42,6 +42,14 @@ self.addEventListener('install', event=>{
     );
 });
 
+window.addEventListener('offline', event=>{
+    let banniere = document.createElement('header');
+    banniere.style.backgroundColor = 'red';
+    banniere.style.color = 'white';
+    banniere.innerText = 'Attention, vous êtes hors-ligne';
+    document.body.prepend(banniere);
+}) ;
+
 /*self.addEventListener ('message', event=>{
     this.clients.matchAll().then(clients=>{
         clients.forEach(client=>client.postMessage('Enchanté, je suis le service worker'));
