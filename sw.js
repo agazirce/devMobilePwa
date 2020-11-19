@@ -1,11 +1,3 @@
-if(navigator.offline){
-    let banniere = document.createElement('header');
-    banniere.style.backgroundColor = 'red';
-    banniere.style.color = 'white';
-    banniere.innerText = 'Attention, vous êtes hors-ligne';
-    document.body.prepend(banniere);
-}
-
 self.addEventListener('fetch', event=>{
     console.log(event.request.url);/*
     console.log(new Response('PWA!!!!'));/*

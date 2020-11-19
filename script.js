@@ -1,5 +1,13 @@
 window.onload = function () {
 
+    window.addEventListener('offline', event=>{
+        let banniere = document.createElement('header');
+        banniere.style.backgroundColor = 'red';
+        banniere.style.color = 'white';
+        banniere.innerText = 'Attention, vous êtes hors-ligne';
+        document.body.prepend(banniere);
+    }) ;
+
     fetch(`GalerieRepos/galerie.json`).then(function (result) {
         console.info(`Données récupérées !`);
         result.json()
