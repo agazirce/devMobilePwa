@@ -2,11 +2,17 @@ window.onload = function () {
 
     window.addEventListener('offline', event=>{
         let banniere = document.createElement('header');
+        banniere.id = 'banniere';
         banniere.style.backgroundColor = 'red';
         banniere.style.color = 'white';
         banniere.style.textAlign = 'center';
         banniere.innerText = 'Attention, vous êtes hors-ligne';
         document.body.prepend(banniere);
+    }) ;
+
+    window.addEventListener('online', event=>{
+        let banniere = document.getElementById('banniere')
+        document.body.removeChild(banniere);
     }) ;
 
     fetch(`GalerieRepos/galerie.json`).then(function (result) {
