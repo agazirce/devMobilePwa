@@ -12,7 +12,8 @@ const files = [
     'https://code.jquery.com/jquery-3.5.1.slim.min.js',
     'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js',
-    'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js'
+    'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js'
     ];
 
 self.addEventListener('fetch', event=>{
@@ -27,7 +28,7 @@ self.addEventListener("fetch", (event) => {
                 if (response.status === 200) {
                     console.info("Formatting data");
                     return response.json().then((json) => {
-                        const formattedResponse = json.map((j) =>
+                        const formattedResponse = json.map(j =>
                             ({  title: j.title}));
                         return new Response(JSON.stringify(formattedResponse));
                     });
@@ -64,4 +65,3 @@ self.addEventListener("activate", e => {
         })
     );
 });
-

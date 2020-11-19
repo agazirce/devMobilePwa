@@ -1,10 +1,24 @@
 window.onload = function () {
     if(navigator.onLine){
         document.getElementById('header').setAttribute('hidden', '');
+        fetch(`https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json`).then((result) => {
+            console.info(`Données récupérées !`);
+            result.json()
+                .then((images) => {
+                    localforage.setItem('images_search_result', images)
+                    console.info(`Données Jsonizées !`);
+                    afficher(images)
+                });
+        }).catch(function (error) {
+            console.error(`Une erreur s'est produite.`);
+            console.log(error);
+        });
     }
 
     window.addEventListener('offline', ()=>{
         document.getElementById('header').removeAttribute('hidden');
+        let image = localforage.getItem('images_search_result');
+        afficher(image);
     }) ;
 
     window.addEventListener('online', ()=>{
@@ -23,17 +37,18 @@ window.onload = function () {
         }
     }
 
-    fetch(`https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json`).then((result) => {
+    /*fetch(`https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json`).then((result) => {
         console.info(`Données récupérées !`);
         result.json()
             .then((images) => {
+                localforage.setItem('images_search_result', images)
                 console.info(`Données Jsonizées !`);
                 afficher(images)
             });
     }).catch(function (error) {
         console.error(`Une erreur s'est produite.`);
         console.log(error);
-    });
+    });*/
 
     function create_row(liste, row) {
         for (let image of liste) {
