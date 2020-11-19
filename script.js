@@ -4,6 +4,7 @@ window.onload = function () {
         let banniere = document.createElement('header');
         banniere.style.backgroundColor = 'red';
         banniere.style.color = 'white';
+        banniere.style.textAlign = 'center';
         banniere.innerText = 'Attention, vous êtes hors-ligne';
         document.body.prepend(banniere);
     }) ;
