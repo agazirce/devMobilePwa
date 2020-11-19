@@ -1,33 +1,20 @@
 window.onload = function () {
-    if(!navigator.onLine){
-        let banniere = document.createElement('header');
-        banniere.id = 'banniere';
-        banniere.style.backgroundColor = 'red';
-        banniere.style.color = 'white';
-        banniere.style.textAlign = 'center';
-        banniere.innerText = 'Attention, vous êtes hors-ligne';
-        document.body.prepend(banniere);
+    if(navigator.onLine){
+        document.getElementsByTagName('header').setAttribute('hidden');
     }
 
     window.addEventListener('offline', event=>{
-        let banniere = document.createElement('header');
-        banniere.id = 'banniere';
-        banniere.style.backgroundColor = 'red';
-        banniere.style.color = 'white';
-        banniere.style.textAlign = 'center';
-        banniere.innerText = 'Attention, vous êtes hors-ligne';
-        document.body.prepend(banniere);
+        document.getElementsByTagName('header').removeAttribute('hidden');
     }) ;
 
     window.addEventListener('online', event=>{
-        let banniere = document.getElementById('banniere')
-        document.body.removeChild(banniere);
+        document.getElementsByTagName('header').setAttribute('hidden');
     }) ;
 
-    fetch(`GalerieRepos/galerie.json`).then(function (result) {
+    fetch(`GalerieRepos/galerie.json`).then((result) => {
         console.info(`Données récupérées !`);
         result.json()
-            .then(function (images) {
+            .then((images) => {
                 console.info(`Données Jsonizées !`);
                 if (images != []){
                     let contenant = document.createElement('div');
