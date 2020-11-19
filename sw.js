@@ -17,7 +17,6 @@ const files = [
 
 self.addEventListener('fetch', event=>{
     console.log(event.request.url);
-    console.log("test");
 });
 
 self.addEventListener("fetch", (event) => {
@@ -39,8 +38,7 @@ self.addEventListener("fetch", (event) => {
             }));
     } else {
         event.respondWith(
-            caches
-                .open(cacheName)
+            caches.open(cacheName)
                 .then(cache => cache.match(event.request))
                 .then(response => response || fetch(url))
         );
@@ -59,8 +57,7 @@ self.addEventListener("activate", e => {
             return Promise.all(
                 keyList.map(function(key) {
                     if (key !== cacheName) {
-                        return
-                        caches.delete(key);
+                        return caches.delete(key);
                     }
                 })
             );
