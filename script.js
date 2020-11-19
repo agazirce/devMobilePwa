@@ -1,14 +1,14 @@
 window.onload = function () {
     if(navigator.onLine){
-        document.getElementsByTagName('header').setAttribute('hidden');
+        document.getElementById('header').setAttribute('hidden');
     }
 
     window.addEventListener('offline', event=>{
-        document.getElementsByTagName('header').removeAttribute('hidden');
+        document.getElementById('header').removeAttribute('hidden');
     }) ;
 
     window.addEventListener('online', event=>{
-        document.getElementsByTagName('header').setAttribute('hidden');
+        document.getElementById('header').setAttribute('hidden');
     }) ;
 
     fetch(`GalerieRepos/galerie.json`).then((result) => {
