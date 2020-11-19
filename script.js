@@ -1,17 +1,15 @@
 window.onload = function () {
-    document.addEventListener("DOMContentLoaded", function () {
-        if(navigator.onLine){
-            document.getElementById('header').setAttribute('hidden', '');
-        }
+    if(navigator.onLine){
+        document.getElementById('header').setAttribute('hidden', '');
+    }
 
-        window.addEventListener('offline', event=>{
-            document.getElementById('header').removeAttribute('hidden');
-        }) ;
+    window.addEventListener('offline', event=>{
+        document.getElementById('header').removeAttribute('hidden');
+    }) ;
 
-        window.addEventListener('online', event=>{
-            document.getElementById('header').setAttribute('hidden', '');
-        }) ;
-    });
+    window.addEventListener('online', event=>{
+        document.getElementById('header').setAttribute('hidden', '');
+    }) ;
 
     function afficher(images){
         if (images != []){
@@ -36,9 +34,6 @@ window.onload = function () {
         console.error(`Une erreur s'est produite.`);
         console.log(error);
     });
-
-
-
 
     function create_row(liste, row) {
         let i = 0;
