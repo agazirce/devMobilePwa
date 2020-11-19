@@ -1,5 +1,16 @@
 window.onload = function () {
 
+    function afficher(json){
+        const images = json.map(j => ({ title: j.title}));
+        let contenant = document.createElement('div');
+        contenant.classList.add('container-fluid', 'bg-white');
+        let row = document.createElement('div');
+        row.classList.add('row');
+        contenant.appendChild(row);
+        document.body.appendChild(contenant);
+        create_row(images, row);
+        }
+
     fetch(`GalerieRepos/galerie.json`).then(function (result) {
         console.info(`Données récupérées !`);
         result.json()
@@ -7,13 +18,7 @@ window.onload = function () {
                 console.warn(`Données Jsonizées !`);
                 console.log(images);
                 if (images != []){
-                    let contenant = document.createElement('div');
-                    contenant.classList.add('container-fluid', 'bg-white');
-                    let row = document.createElement('div');
-                    row.classList.add('row');
-                    contenant.appendChild(row);
-                    document.body.appendChild(contenant);
-                    create_row(images, row);
+                    afficher(images)
                 }
             });
     }).catch(function (error) {
