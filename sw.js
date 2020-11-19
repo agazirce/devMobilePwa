@@ -12,16 +12,17 @@ self.addEventListener("fetch", (event) => {
     if (url.indexOf("GalerieRepos/galerie.json") ===0) {
         event.respondWith(
             fetch(event.request).then((response) => {
-                if (response.statusText !== "OK") {
+                if (response.status === 200) {
+                    console.info("Formatting data");
+                    return response.json().then((json) => {
+                        const formattedResponse = json.map((j) =>
+                            ({  title: j.title}));
+                        return new Response(JSON.stringify(formattedResponse));
+                    });
+                } else {
                     console.error("Service Worker","Error when fetching",event.request.url);
                     return response;
                 }
-                console.info("Formatting data");
-                return response.json().then((json) => {
-                    const formattedResponse = json.map((j) =>
-                        ({  title: j.title}));
-                    return new Response(JSON.stringify(formattedResponse));
-                });
             }));
     }});
 
