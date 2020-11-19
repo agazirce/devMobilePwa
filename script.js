@@ -17,8 +17,9 @@ window.onload = function () {
 
     window.addEventListener('offline', ()=>{
         document.getElementById('header').removeAttribute('hidden');
-        let image = localforage.getItem('images_search_result');
-        afficher(image);
+        localforage.getItem('images_search_result').then((image) => {
+            afficher(image);
+        });
     }) ;
 
     window.addEventListener('online', ()=>{
