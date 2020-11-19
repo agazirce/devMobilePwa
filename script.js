@@ -11,7 +11,7 @@ window.onload = function () {
         document.getElementById('header').setAttribute('hidden', '');
     }) ;
 
-    fetch(`https://cranky-mcnulty-e3f846.netlify.app/galerie.json`).then((result) => {
+    fetch(`https://cranky-mcnulty-e3f846.netlify/galerie.json`).then((result) => {
         console.info(`Données récupérées !`);
         result.json()
             .then((images) => {
