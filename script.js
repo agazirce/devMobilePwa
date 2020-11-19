@@ -3,11 +3,11 @@ window.onload = function () {
         document.getElementById('header').setAttribute('hidden', '');
     }
 
-    window.addEventListener('offline', event=>{
+    window.addEventListener('offline', ()=>{
         document.getElementById('header').removeAttribute('hidden');
     }) ;
 
-    window.addEventListener('online', event=>{
+    window.addEventListener('online', ()=>{
         document.getElementById('header').setAttribute('hidden', '');
     }) ;
 
@@ -36,8 +36,6 @@ window.onload = function () {
     });
 
     function create_row(liste, row) {
-        let i = 0;
-
         for (let image of liste) {
 
             let col = document.createElement('div');
