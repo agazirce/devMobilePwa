@@ -36,6 +36,7 @@ function create_row(liste, row) {
         button.textContent = 'mettre en favori';
 
         card_body.appendChild(title);
+        card_body.appendChild(button);
         card.appendChild(img);
         card.appendChild(card_body);
         col.appendChild(card);
