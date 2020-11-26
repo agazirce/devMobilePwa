@@ -16,6 +16,12 @@ const files = [
     'https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js'
     ];
 
+self.addEventListener('install', event=>{
+    caches.open(cacheName).then(cache => {
+        cache.addAll(files);
+    });
+});
+
 self.addEventListener('fetch', event=>{
     console.log(event.request.url);
 });
@@ -44,12 +50,6 @@ self.addEventListener("fetch", (event) => {
                 .then(response => response || fetch(url))
         );
     }
-});
-
-self.addEventListener('install', event=>{
-    caches.open(cacheName).then(cache => {
-        cache.addAll(files);
-    });
 });
 
 self.addEventListener("activate", e => {
