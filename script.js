@@ -11,6 +11,7 @@ function afficher(images){
 }
 
 function create_row(liste, row) {
+    let i = 0;
     for (let image of liste) {
 
         let col = document.createElement('div');
@@ -32,6 +33,7 @@ function create_row(liste, row) {
         title.textContent = image.title;
 
         let button = document.createElement('button');
+        button.id = 'btn'+i;
         button.classList.add('btn', 'btn-primary');
         button.textContent = 'mettre en favori';
         button.addEventListener('onclick', function (){
@@ -43,6 +45,8 @@ function create_row(liste, row) {
         card.appendChild(card_body);
         col.appendChild(card);
         row.appendChild(col);
+
+        i++;
     }
 }
 
