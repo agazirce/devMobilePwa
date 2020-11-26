@@ -27,9 +27,13 @@ function create_row(liste, row) {
         let card_body = document.createElement('div');
         card_body.classList.add('card-body');
 
-        let title = document.createElement('p')
+        let title = document.createElement('p');
         title.classList.add('card-text');
         title.textContent = image.title;
+
+        let button = document.createElement('button');
+        button.classList.add('btn, btn-primary');
+        button.textContent = 'mettre en favori';
 
         card_body.appendChild(title);
         card.appendChild(img);
