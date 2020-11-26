@@ -83,7 +83,7 @@
 /*}*/
 document.addEventListener("DOMContentLoaded", function () {
     if (navigator.onLine) {
-        document.querySelector(".notification").setAttribute("hidden", "");
+        document.getElementById('header').setAttribute("hidden", "");
     }
 
     window.addEventListener("online", () => {
