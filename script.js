@@ -13,13 +13,14 @@ window.onload = function () {
             console.error(`Une erreur s'est produite.`);
             console.log(error);
         });
+    } else {
+        localforage.getItem('images_search_result').then((image) => {
+        afficher(image);
+        });
     }
 
     window.addEventListener('offline', ()=>{
         document.getElementById('header').removeAttribute('hidden');
-        localforage.getItem('images_search_result').then((image) => {
-            afficher(image);
-        });
     }) ;
 
     window.addEventListener('online', ()=>{
