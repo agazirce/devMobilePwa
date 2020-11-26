@@ -1,6 +1,6 @@
 const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ServiceWorkerWebpackPlugin = require("Serviceworker-webpack-plugin");
 module.exports= {
     entry: "./script.js",
     output: {
@@ -8,7 +8,10 @@ module.exports= {
         path: path.resolve(__dirname, "dist"),
     },
     plugins: [
-        new HtmlWebpackPlugin({template: './index.html'})
+        new HtmlWebpackPlugin({template: './index.html'}),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, './sw.js'),
+        }),
     ],
     devServer: {
         contentBase: "./dist",
