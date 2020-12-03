@@ -50,22 +50,12 @@ function create_row(liste, row) {
                 if (navigator.onLine) {
                     fetchData = fetch('http://localhost:3000/favoris')
                         .then((response) => response.json())
-                        .then((data) => localforage.setItem("data", data));
+                        .then((data) => localforage.setItem("favoris", data));
                 } else {
-                    fetchData = localforage.getItem("data");
+                    fetchData = localforage.getItem("favoris");
                 }
 
                 fetchData.then((json) => afficher(json));
-
-                /*// Création d'un objet FormData
-                let data = new FormData();
-                // Ajout d'information dans l'objet
-                data.append("src", image.src);
-                // Création et configuration d'une requête HTTP POST vers le serveur
-                let req = new XMLHttpRequest();
-                req.open("POST", "http://localhost:3000/favoris");
-                // Envoi de la requête en y incluant l'objet
-                req.send(data);*/
             }
         });
         card_body.appendChild(title);
