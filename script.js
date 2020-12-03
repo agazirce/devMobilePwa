@@ -52,7 +52,7 @@ function create_row(liste, row) {
                 data.append("src", image.src);
                 // Création et configuration d'une requête HTTP POST vers le fichier post_form.php
                 let req = new XMLHttpRequest();
-                req.open("POST", "http://localhost:3000/");
+                req.open("POST", "http://localhost:3000/favoris");
                 // Envoi de la requête en y incluant l'objet
                 req.send(data);
             }
