@@ -49,7 +49,7 @@ function create_row(liste, row) {
                 let fetchData;
                 if (navigator.onLine) {
                     let options = {method:'POST',
-                                    body: image.src}
+                                    body: {img: image.src}}
                     fetchData = fetch('http://localhost:3000/favoris', options)
                         .then((data) => localforage.setItem("favoris", data));
                 } else {
