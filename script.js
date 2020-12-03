@@ -37,11 +37,13 @@ function create_row(liste, row) {
         button.classList.add('btn', 'btn-primary');
         button.textContent = 'mettre en favori';
         button.addEventListener('click', function (){
-            if (button.hasAttribute("disabled")){
-                button.removeAttribute("disabled");
+            if (button.textContent == 'favori'){
+                button.classList.remove('btn-success')
+                button.classList.add('btn-primary')
                 button.textContent = 'mettre en favori';
             } else {
-                button.disabled = true;
+                button.classList.remove('btn-primary')
+                button.classList.add('btn-success')
                 button.textContent = 'favori';
 
                 // Création d'un objet FormData
