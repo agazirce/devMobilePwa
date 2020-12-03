@@ -36,8 +36,9 @@ function create_row(liste, row) {
         button.id = 'btn'+i;
         button.classList.add('btn', 'btn-primary');
         button.textContent = 'mettre en favori';
-        button.addEventListener('onclick', function (){
+        button.addEventListener('click', function (){
             button.disabled = true;
+            button.textContent = 'favori';
         });
         card_body.appendChild(title);
         card_body.appendChild(button);
