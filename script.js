@@ -48,7 +48,7 @@ function create_row(liste, row) {
 
                 let fetchData;
                 if (navigator.onLine) {
-                    fetchData = fetch('http://localhost:3000/favoris')
+                    fetchData = fetch('http://localhost:3000/favoris', {method:'POST'})
                         .then((response) => response.json())
                         .then((data) => localforage.setItem("favoris", data));
                 } else {
