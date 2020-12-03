@@ -68,8 +68,22 @@ self.addEventListener("fetch", event => {
 
             })
         );
-    }
-    else {
+    } else if (url.indexOf("http://localhost:3000/favoris") === 0) {
+        event.respondWith(
+            fetch(event.request).then(response => {
+                if (response.status === 200) {
+                    console.info("Data synchronized");
+                } else{
+                    console.error(
+                        "Service Worker",
+                        "Error when fetching",
+                        event.request.url
+                    );
+                    return response;
+                }
+            })
+        );
+    } else {
         event.respondWith(
             caches
                 .open(cacheName)
