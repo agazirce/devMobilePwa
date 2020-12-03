@@ -39,6 +39,16 @@ function create_row(liste, row) {
         button.addEventListener('click', function (){
             button.disabled = true;
             button.textContent = 'favori';
+
+            // Création d'un objet FormData
+            let data = new FormData();
+            // Ajout d'information dans l'objet
+            data.append("src", image.src);
+            // Création et configuration d'une requête HTTP POST vers le fichier post_form.php
+            let req = new XMLHttpRequest();
+            req.open("POST", "http://localhost:3000/");
+            // Envoi de la requête en y incluant l'objet
+            req.send(data);
         });
         card_body.appendChild(title);
         card_body.appendChild(button);
