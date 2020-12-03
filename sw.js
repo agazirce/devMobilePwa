@@ -79,8 +79,8 @@ self.addEventListener("fetch", event => {
                         "Error when fetching",
                         event.request.url
                     );
-                    return response;
                 }
+                return response;
             })
         );
     } else {
