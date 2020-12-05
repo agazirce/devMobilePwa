@@ -47,9 +47,8 @@ self.addEventListener("fetch", event => {
                     console.info("Formatting data");
                     return response.json().then(json => {
                         const formattedResponse = json.map(j => ({
-                            name: j.name,
-                            description: j.description || "",
-                            updated_at: j.updated_at
+                            title: j.title,
+                            src: j.src
                         }));
 
                         return new Response(JSON.stringify(formattedResponse));
