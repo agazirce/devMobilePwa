@@ -1,3 +1,4 @@
+// TODO : exploiter fav lors de l'affichage, supprimer des fav si nouvel appui, envoi d'un message lors de la synchro
 function afficher(images){
     if (images != []){
         let contenant = document.createElement('div');
@@ -56,9 +57,7 @@ function create_row(liste, row) {
                             localforage.getItem("data")
                                 .then(function (items) {
                                     items.forEach(item => {
-                                        console.log(item.src);
                                         if (item.src === JSON.parse(favoris).img){
-                                            console.log(item.src);
                                             item.fav = 'true';
                                         }
                                     });
