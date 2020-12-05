@@ -6,14 +6,14 @@ const port = 3000;
 
 let favoris = [];
 
-app.use(bodyParser.json());
+const jsonParser = bodyParser.json();
 app.use(cors());
 
 app.get("/favoris", (request, response) => {
     response.send(favoris);
 });
 
-app.post("/favoris", (request, response) => {
+app.post("/favoris", jsonParser, (request, response) => {
     console.log(request.body);
     favoris = request.body;
     response.send(favoris);
