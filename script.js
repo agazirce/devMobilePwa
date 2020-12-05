@@ -48,10 +48,10 @@ function create_row(liste, row) {
 
                 let fetchData;
                 if (navigator.onLine) {
-                    /*let data = new FormData();
-                    data.append("json", JSON.stringify({img: image.src}));*/
+                    let data = new FormData();
+                    data.append("json", JSON.stringify({img: image.src}));
                     let options = {method:'POST',
-                                    body: JSON.stringify({img: image.src})};
+                                    body: data};
                     console.log(options);
                     fetchData = fetch('http://localhost:3000/favoris', options)
                         .then((favoris) => {
