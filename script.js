@@ -55,14 +55,14 @@ function create_row(liste, row) {
                         .then((favoris) => {
                             localforage.getItem("data")
                                 .then(function (items) {
-                                    for (let item in items) {
+                                    items.forEach(item => {
                                         console.log(item);
                                         let data = JSON.parse(item);
                                         if (data.src === favoris.img){
                                             console.log(data.src);
                                             data.fav = 'true';
                                         }
-                                    }
+                                    });
                                     localforage.setItem("data", items);
                                 });
                         })
