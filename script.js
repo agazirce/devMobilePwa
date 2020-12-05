@@ -55,10 +55,9 @@ function create_row(liste, row) {
                         .then((favoris) => {
                             localforage.getItem("data")
                                 .then(function (items) {
-                                    console.log(JSON.parse(favoris));
                                     items.forEach(item => {
                                         console.log(item.src);
-                                        if (item.src === favoris.img){
+                                        if (item.src === JSON.parse(favoris).img){
                                             console.log(item.src);
                                             item.fav = 'true';
                                         }
