@@ -48,7 +48,8 @@ self.addEventListener("fetch", event => {
                     return response.json().then(json => {
                         const formattedResponse = json.map(j => ({
                             title: j.title,
-                            src: j.src
+                            src: j.src,
+                            fav: j.fav
                         }));
                         return new Response(JSON.stringify(formattedResponse));
                     });
