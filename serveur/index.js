@@ -16,7 +16,7 @@ app.post("/favoris", (request, response) => {
     console.log(request.body);
     favoris = JSON.stringify(request.body);
     console.log(favoris)
-    response.json({ text: 'test' });
+    response.json(favoris);
 });
 
 app.listen(port, err => {
