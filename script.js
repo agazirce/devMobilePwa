@@ -49,7 +49,7 @@ function create_row(liste, row) {
                 let fetchData;
                 if (navigator.onLine) {
                     let options = {method:'POST',
-                                    body: {img: image.src}};
+                                    body: JSON.stringify({img: image.src})};
                     console.log(options);
                     fetchData = fetch('http://localhost:3000/favoris', options)
                         .then((favoris) => {
