@@ -50,26 +50,22 @@ self.addEventListener("fetch", event => {
                             title: j.title,
                             src: j.src
                         }));
-
                         return new Response(JSON.stringify(formattedResponse));
                     });
-                }
-
-                else{
+                } else{
                     console.error(
                         "Service Worker",
                         "Error when fetching",
                         event.request.url
                     );
-
                     return response;
                 }
-
             })
         );
     } else if (url.indexOf("http://localhost:3000/favoris") === 0) {
         event.respondWith(
             fetch(event.request).then(response => {
+                console.info("Send data");
                 if (response.status === 200) {
                     console.info("Data synchronized");
                 } else{
