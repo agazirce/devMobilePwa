@@ -55,7 +55,7 @@ function create_row(liste, row) {
                     console.log(options);
                     fetchData = fetch('http://localhost:3000/favoris', options)
                         .then((favoris) => {
-                            console.log(favoris);
+                            console.log(favoris.body);
                             localforage.setItem("favoris", favoris);
                         })
                         .catch(function (error) {
