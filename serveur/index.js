@@ -1,22 +1,22 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const port = 3000;
 
 let favoris = [];
 
-const jsonParser = bodyParser.json();
+app.use(express.json({type: '*/*'}));
 app.use(cors());
 
 app.get("/favoris", (request, response) => {
     response.send(favoris);
 });
 
-app.post("/favoris", jsonParser, (request, response) => {
+app.post("/favoris", (request, response) => {
     console.log(request.body);
-    favoris = request.body;
-    response.send(favoris);
+    favoris = JSON.stringify(request.body);
+    console.log(favoris)
+    response.json({ text: 'test' });
 });
 
 app.listen(port, err => {
