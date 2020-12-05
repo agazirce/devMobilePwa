@@ -51,6 +51,7 @@ function create_row(liste, row) {
                     let options = {method:'POST',
                                     body: JSON.stringify({img: image.src})};
                     fetchData = fetch('http://localhost:3000/favoris', options)
+                        .then((response) => response.json())
                         .then((favoris) => {
                             console.log(favoris);
                             localforage.setItem("favoris", favoris);
