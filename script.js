@@ -54,7 +54,15 @@ function create_row(liste, row) {
                         .then((response) => response.json())
                         .then((favoris) => {
                             console.log(favoris);
-                            localforage.setItem("favoris", favoris);
+                            localforage.getItem("data")
+                                .then(function (items) {
+                                    for (let item in items) {
+                                        if (item.src === favoris.img){
+                                            item.fav = 'true';
+                                        }
+                                    }
+                                    localforage.setItem("data", items);
+                                });
                         })
                         .catch(function (error) {
                             console.error("une erreur s'est produite");
