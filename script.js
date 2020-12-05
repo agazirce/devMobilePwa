@@ -53,10 +53,10 @@ function create_row(liste, row) {
                     fetchData = fetch('http://localhost:3000/favoris', options)
                         .then((response) => response.json())
                         .then((favoris) => {
-                            console.log(favoris);
                             localforage.getItem("data")
                                 .then(function (items) {
                                     for (let item in items) {
+                                        console.log(item);
                                         let data = JSON.parse(item);
                                         if (data.src === favoris.img){
                                             console.log(data.src);
