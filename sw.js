@@ -52,7 +52,7 @@ self.addEventListener("fetch", event => {
                         }));
                         return new Response(JSON.stringify(formattedResponse));
                     });
-                } else{
+                } else {
                     console.error(
                         "Service Worker",
                         "Error when fetching",
@@ -68,7 +68,7 @@ self.addEventListener("fetch", event => {
                 console.info("Send data");
                 if (response.status === 200) {
                     console.info("Data synchronized");
-                } else{
+                } else {
                     console.error(
                         "Service Worker",
                         "Error when fetching",
