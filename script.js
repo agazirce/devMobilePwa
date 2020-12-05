@@ -56,9 +56,10 @@ function create_row(liste, row) {
                             console.log(favoris);
                             localforage.getItem("data")
                                 .then(function (items) {
+                                    console.log(items);
                                     for (let item in items) {
                                         if (item.src === favoris.img){
-                                            console.log(item.src)
+                                            console.log(item.src);
                                             item.fav = 'true';
                                         }
                                     }
