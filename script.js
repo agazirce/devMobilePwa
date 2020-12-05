@@ -48,21 +48,27 @@ function create_row(liste, row) {
 
                 let fetchData;
                 if (navigator.onLine) {
-                    let data = new FormData();
-                    data.append("json", JSON.stringify({img: image.src}));
+                    /*let data = new FormData();
+                    data.append("json", JSON.stringify({img: image.src}));*/
                     let options = {method:'POST',
-                                    body: data};
+                                    body: {img: image.src}};
                     console.log(options);
                     fetchData = fetch('http://localhost:3000/favoris', options)
                         .then((favoris) => {
                             console.log(favoris);
                             localforage.setItem("favoris", favoris);
+                        })
+                        .catch(function (error) {
+                            console.error("une erreur s'est produite");
+                            console.log(error);
                         });
                 } else {
                     fetchData = localforage.getItem("favoris");
                 }
 
-                fetchData.then((json) => afficher(json));
+                fetchData.then((json) => {
+                    console.log(json);
+                });
             }
         });
         card_body.appendChild(title);
@@ -92,7 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navigator.onLine) {
         fetchData = fetch("https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json")
             .then((response) => response.json())
-            .then((data) => localforage.setItem("data", data));
+            .then((data) => localforage.setItem("data", data))
+            .catch(function (error) {
+                console.error("une erreur s'est produite");
+                console.log(error);
+            });
     }
     else {
         fetchData = localforage.getItem("data");
