@@ -35,47 +35,59 @@ function create_row(liste, row) {
 
         let button = document.createElement('button');
         button.id = 'btn'+i;
-        button.classList.add('btn', 'btn-primary');
-        button.textContent = 'mettre en favori';
+        if (image.fav === "true"){
+            button.classList.add('btn', 'btn-success');
+            button.textContent = 'favori';
+        } else {
+            button.classList.add('btn', 'btn-primary');
+            button.textContent = 'mettre en favori';
+        }
         button.addEventListener('click', function (){
             if (button.textContent == 'favori'){
                 button.classList.remove('btn-success')
                 button.classList.add('btn-primary')
                 button.textContent = 'mettre en favori';
+                image.fav = "";
             } else {
                 button.classList.remove('btn-primary')
                 button.classList.add('btn-success')
                 button.textContent = 'favori';
-
-                let fetchData;
-                if (navigator.onLine) {
-                    let options = {method:'POST',
-                                    body: JSON.stringify({img: image.src})};
-                    fetchData = fetch('http://localhost:3000/favoris', options)
-                        .then((response) => response.json())
-                        .then((favoris) => {
-                            localforage.getItem("data")
-                                .then(function (items) {
-                                    items.forEach(item => {
-                                        if (item.src === JSON.parse(favoris).img){
-                                            item.fav = 'true';
-                                        }
-                                    });
-                                    localforage.setItem("data", items);
-                                });
-                        })
-                        .catch(function (error) {
-                            console.error("une erreur s'est produite");
-                            console.log(error);
-                        });
-                } else {
-                    fetchData = localforage.getItem("favoris");
-                }
-
-                fetchData.then((json) => {
-                    console.log(json);
-                });
+                image.fav = "true";
             }
+
+            let fetchData;
+            if (navigator.onLine) {
+                let options = {
+                    method:'POST',
+                    body: JSON.stringify({
+                        img: image.src,
+                        fav: image.fav
+                    })
+                };
+                fetchData = fetch('http://localhost:3000/favoris', options)
+                    .then((response) => response.json())
+                    .then((favoris) => {
+                        localforage.getItem("data")
+                            .then(function (items) {
+                                items.forEach(item => {
+                                    if (item.src === JSON.parse(favoris).img){
+                                        item.fav = JSON.parse(favoris).fav;
+                                    }
+                                });
+                                localforage.setItem("data", items);
+                            });
+                    })
+                    .catch(function (error) {
+                        console.error("une erreur s'est produite");
+                        console.log(error);
+                    });
+            } else {
+                fetchData = localforage.getItem("favoris");
+            }
+
+            fetchData.then((json) => {
+                console.log(json);
+            });
         });
         card_body.appendChild(title);
         card_body.appendChild(button);
