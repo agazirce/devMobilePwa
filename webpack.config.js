@@ -6,7 +6,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports= {
     entry: "./script.js",
     output: {
-        filename: "main.js",
+        filename: "main.[contenthash].js",
         path: path.resolve(__dirname, "dist"),
     },
     plugins: [
@@ -23,9 +23,5 @@ module.exports= {
     ],
     devServer: {
         contentBase: "./dist",
-    },
-    output: {
-        filename: "main.[contenthash].js",
-        path: path.resolve(__dirname, "dist"),
     },
 };
