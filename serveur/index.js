@@ -5,6 +5,7 @@ const port = 3000;
 
 let favoris = [];
 
+// for express v4.16.*
 app.use(express.json({type: '*/*'}));
 app.use(cors());
 
