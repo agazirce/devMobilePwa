@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let fetchData;
     if (navigator.onLine) {
-        fetchData = fetch("https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json")
+        fetchData = fetch("http://localhost:8080/GalerieRepos/galerie.json")
             .then((response) => response.json())
             .then((data) => localforage.setItem("data", data))
             .catch(function (error) {
