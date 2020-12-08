@@ -40,7 +40,7 @@ self.addEventListener("fetch", e => {console.log(e.request.url);});
 self.addEventListener("fetch", event => {
     const url = event.request.url;
 
-    if (url.indexOf("https://cranky-mcnulty-e3f846.netlify.app/GalerieRepos/galerie.json") === 0) {
+    if (url.indexOf("http://localhost:8080/GalerieRepos/galerie.json") === 0) {
         event.respondWith(
             fetch(event.request).then(response => {
                 if (response.status === 200) {
