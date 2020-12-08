@@ -7,3 +7,4 @@
 node_modules/*
 serveur/node_modules/*
 devMobilePwa.zip
+dist/*
