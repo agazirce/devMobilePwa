@@ -37,6 +37,12 @@ self.addEventListener("activate", e => {
 
 self.addEventListener("fetch", e => {console.log(e.request.url);});
 
+self.addEventListener('sync', (event) => {
+    if (event.tag === 'synchroImages') {
+        event.waitUntil(synchroServeur())
+    }
+})
+
 self.addEventListener("fetch", event => {
     const url = event.request.url;
 

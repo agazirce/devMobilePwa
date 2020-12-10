@@ -10,14 +10,20 @@ app.use(express.json({type: '*/*'}));
 app.use(cors());
 
 app.get("/favoris", (request, response) => {
-    response.send(favoris);
+    response.json(JSON.stringify(favoris));
 });
 
 app.post("/favoris", (request, response) => {
-    console.log(request.body);
-    favoris = JSON.stringify(request.body);
+    request.body.forEach(function (img) {
+        let indexFav = favoris.map(function(e) { return e.img; }).indexOf(img.img);
+        if (indexFav === -1) {
+            favoris.push(img);
+        } else {
+            favoris.splice(indexFav, 1);
+        }
+    })
     console.log(favoris)
-    response.json(favoris);
+    response.json(JSON.stringify(favoris));
 });
 
 app.listen(port, err => {
